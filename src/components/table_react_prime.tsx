@@ -112,7 +112,7 @@ export default function ArtworkTable() {
 
     const headerButtonTemplate = useMemo(() => (
         <div className="flex align-items-center">
-            <Button icon="pi pi-sort-down" onClick={(e) => op.current?.toggle(e)} label="Select Rows ˅" />
+            <Button icon="" onClick={(e) => op.current?.toggle(e)} label="˅" />
             <OverlayPanel ref={op}>
                 <div className="p-field">
                     <label htmlFor="rowNumber">Row Number</label>
@@ -157,7 +157,7 @@ export default function ArtworkTable() {
                     responsiveLayout="scroll"
                 >
                     <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
-                    <Column header={headerButtonTemplate} headerStyle={{ width: '10rem', textAlign: 'center' }}></Column>
+                    <Column header={headerButtonTemplate} headerStyle={{  textAlign: 'center' }}></Column>
                     <Column field="title" header="Title"></Column>
                     <Column field="place_of_origin" header="Place of Origin"></Column>
                     <Column field="artist_display" header="Artist Display"></Column>
