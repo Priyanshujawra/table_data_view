@@ -31,7 +31,7 @@ export default function ArtworkTable() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const op = useRef<OverlayPanel>(null);
 
-    // Fetch artworks by page
+   
     const fetchArtworks = async (page: number) => {
         setLoading(true);
         try {
@@ -54,7 +54,7 @@ export default function ArtworkTable() {
         }
     };
 
-    // Fetch artworks for multiple pages
+   
     const fetchMultiplePages = async (startPage: number, pagesToFetch: number) => {
         const requests = [];
         for (let i = 0; i < pagesToFetch; i++) {
@@ -91,14 +91,14 @@ export default function ArtworkTable() {
 
             let rowsToSelect: Artwork[] = [];
 
-            // Select rows from the current page
+           
             const currentPageRows = artworks.slice(0, Math.min(inputRow, rowsPerPage));
             rowsToSelect = [...rowsToSelect, ...currentPageRows];
 
             const remainingRows = inputRow - rowsToSelect.length;
             const pagesToFetch = Math.ceil(remainingRows / rowsPerPage);
 
-            // If additional rows are needed from subsequent pages
+            
             if (remainingRows > 0) {
                 const additionalArtworks = await fetchMultiplePages(page + 1, pagesToFetch);
                 const additionalRows = additionalArtworks.slice(0, remainingRows);
@@ -127,7 +127,7 @@ export default function ArtworkTable() {
                 <Button label="Select" onClick={handleRowSelection} />
             </OverlayPanel>
         </div>
-    ), [inputRow, errorMessage]); // Memoize the header to prevent re-render on every state change
+    ), [inputRow, errorMessage]); 
 
     return (
         <div className="card">
